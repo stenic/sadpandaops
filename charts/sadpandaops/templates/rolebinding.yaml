@@ -8,7 +8,15 @@ subjects:
     namespace: {{ .Release.Namespace }}
     name: {{ include "sadpandaops.serviceAccountName" . }}
 roleRef:
+{{- if .Values.sadpandaops.clusterRole }}
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: admin
+  name: {{ .Values.sadpandaops.clusterRole }}
+{{- else if .Values.sadpandaops.role }}
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: {{ .Values.sadpandaops.role }}
+{{- else }}
+{{ fail "You need either .Values.sadpandaops.clusterRole or .Values.sadpandaops.role " }}
+{{- end -}}
   
