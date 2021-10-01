@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "sadpandaops.fullname" . }}
+  labels:
+    {{- include "sadpandaops.labels" . | nindent 4 }}
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      {{- include "sadpandaops.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "sadpandaops.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "sadpandaops.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: SPO_RELEASE
+              value: {{ required ".Values.sadpandaops.releaseName is required!" .Values.sadpandaops.releaseName | quote }}
+            - name: SPO_REPO
+              value: {{ required ".Values.sadpandaops.repository.url is required!" .Values.sadpandaops.repository.url | quote }}
+            - name: SPO_REPO_PATH
+              value: {{ required ".Values.sadpandaops.repository.url is required!" .Values.sadpandaops.repository.path | quote }}
+            - name: SPO_LOOP_DELAY
+              value: {{ .Values.sadpandaops.loopDelay | quote }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /opt/sadpanda
+              name: sadpanda-config
+      volumes:
+        - name: sadpanda-config
+          secret:
+            secretName: {{ include "sadpandaops.fullname" . }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

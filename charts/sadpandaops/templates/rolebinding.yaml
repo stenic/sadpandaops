@@ -1,0 +1,14 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ include "sadpandaops.serviceAccountName" . }}
+subjects:
+  - apiGroup: ""
+    kind: ServiceAccount
+    namespace: {{ .Release.Namespace }}
+    name: {{ include "sadpandaops.serviceAccountName" . }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: admin
+  

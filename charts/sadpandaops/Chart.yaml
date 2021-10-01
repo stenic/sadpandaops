@@ -1,0 +1,6 @@
+apiVersion: v2
+name: sadpandaops
+description: GitOps for the non cluster admins
+type: application
+version: 0.1.0
+appVersion: "0.0.10"
