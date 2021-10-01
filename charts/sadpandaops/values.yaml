@@ -2,40 +2,78 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+## @section Image
+##
 image:
+  ## @param image.repository Docker image
+  ##
   repository: nousefreak/sadpandaops
+  ## @param image.pullPolicy How to handle pulling images
+  ##
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+  ## @param image.tag Overrides the image tag whose default is the chart appVersion.
+  ##
   tag: ""
 
+## @section SadPandaOps
 sadpandaops:
+  ## @param sadpandaops.releaseName Name of the resulting helm installation
+  ##
   releaseName: "sadpanda-example"
   repository:
+    ## @param sadpandaops.repository.url Url pointing to the git repository
+    ##
     url: ""
+    ## @param sadpandaops.repository.path Path within the repository where the helm chart is located
+    ##
     path: ""
+    ## @param sadpandaops.repository.sshKey Private ssh key to clone the repository
+    ##
     sshKey: ""
+  ## @param sadpandaops.loopDelay Time in seconds between control loops
+  ##
   loopDelay: 180
+  ## @param sadpandaops.clusterRole ClusterRole to assign to SadPandaOps
+  ##
   clusterRole: ""
+  ## @param sadpandaops.role Role to assign to SadPandaOps
+  ##
   role: ""
-  
+
+## @section Common
+## @param imagePullSecrets Docker registry secret names as an array
+##
 imagePullSecrets: []
+## @param nameOverride Overwrite the name of the helm release
+##
 nameOverride: ""
+## @param fullnameOverride Overwrite the name of the release
+##
 fullnameOverride: ""
 
 serviceAccount:
-  # Specifies whether a service account should be created
+  ## @param serviceAccount.create Boolean indicating to create a ServiceAccount
+  ##
   create: true
-  # Annotations to add to the service account
+  ## @param serviceAccount.annotations Annotations to add to the service account
+  ##
   annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
+  ## @param serviceAccount.name The name of the service account to use.
+  ## If not set and create is true, a name is generated using the fullname template
+  ##
   name: ""
 
+## @param podAnnotations Extra annotations for the SadPandaOps pod
+##
 podAnnotations: {}
 
+## @param podSecurityContext Object setting podSecurityContext
+##
 podSecurityContext: {}
   # fsGroup: 2000
 
+## @param securityContext Object setting securityContext
+##
 securityContext: {}
   # capabilities:
   #   drop:
@@ -44,20 +82,42 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-resources: {}
+## ref: http://kubernetes.io/docs/user-guide/compute-resources/
+##
+## @skip resources
+## @disabled-param resources.limits  The resources limits for the Kubewatch container
+## @disabled-param resources.requests  The requested resources for the Kubewatch container
+##
+resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
+  limits: {}
+  #   cpu: 200m
+  #   memory: 256Mi
+  requests: {}
+  #   cpu: 200m
+  #   memory: 10Mi
 
+## Node labels for pod assignment. Evaluated as a template.
+## ref: https://kubernetes.io/docs/user-guide/node-selection/
+##
+## @param nodeSelector  Node labels for pod assignment
+##
 nodeSelector: {}
 
+## Tolerations for pod assignment. Evaluated as a template.
+## ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+##
+## @param tolerations  Tolerations for pod assignment
+##
 tolerations: []
 
+## Affinity for pod assignment. Evaluated as a template.
+## ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
+## Note: podAffinityPreset, podAntiAffinityPreset, and nodeAffinityPreset will be ignored when it's set
+##
+## @param affinity  Affinity for pod assignment
+##
 affinity: {}
