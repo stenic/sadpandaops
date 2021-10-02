@@ -7,7 +7,7 @@
 image:
   ## @param image.repository Docker image
   ##
-  repository: stenicbv/sadpandaops
+  repository: ghcr.io/stenic/sadpandaops
   ## @param image.pullPolicy How to handle pulling images
   ##
   pullPolicy: IfNotPresent
