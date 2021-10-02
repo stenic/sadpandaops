@@ -1,0 +1,5 @@
+sadpandaops:
+  clusterRole: test
+  repository:
+    url: required
+    path: required
