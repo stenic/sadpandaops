@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/stenic/sadpandaops/compare/v1.1.0...v1.2.0) (2021-10-02)
+
+
+### Bug Fixes
+
+* **chart:** Correct error message ([df0b246](https://github.com/stenic/sadpandaops/commit/df0b246f4877ad28db567603e3f9a0558aaf7d09))
+* **ci:** Provide ci test values ([f325fa1](https://github.com/stenic/sadpandaops/commit/f325fa18b156dc6abd671f3f782dade5fb6e411d))
+
+
+### Features
+
+* **chart:** Upgrade repo location ([f89ec9f](https://github.com/stenic/sadpandaops/commit/f89ec9fab901bd96c28c35653e189ed3d2bdd722))
+
 # [1.1.0](https://github.com/stenic/sadpandaops/compare/v1.0.10...v1.1.0) (2021-10-02)
 
 
