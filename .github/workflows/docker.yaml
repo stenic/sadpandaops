@@ -11,6 +11,9 @@ on:
       - main
   release:
     types: [published]
+  workflow_run:
+    workflows: ["Semantic release"]
+    types: [completed]
 
 jobs:
   docker:
