@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/stenic/sadpandaops/compare/v1.0.10...v1.1.0) (2021-10-02)
+
+
+### Features
+
+* **ci:** Push less images ([a1c89c8](https://github.com/stenic/sadpandaops/commit/a1c89c860766a57beaba27f9360f332905afc4f3))
+
 ## [1.0.10](https://github.com/stenic/sadpandaops/compare/v1.0.9...v1.0.10) (2021-10-02)
 
 
