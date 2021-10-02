@@ -1,6 +1,48 @@
 # SadPandaOps
 
+## Source Code
 
+* <https://github.com/stenic/sadpandaops>
+
+## Requirements
+
+Kubernetes: `>=1.16.0-0`
+
+## TL;DR
+
+```console
+helm repo add stenic-spo https://stenic.github.io/sadpandaops/
+helm repo update
+helm install sadpandaops stenic-spo/sadpandaops -f values.yaml
+```
+
+## Installing the Chart
+
+To install the chart with the release name `sadpandaops`
+
+```console
+helm install sadpandaops stenic-spo/sadpandaops
+```
+
+## Uninstalling the Chart
+
+To uninstall the `sadpandaops` deployment
+
+```console
+helm uninstall sadpandaops
+```
+
+The command removes all the Kubernetes components associated with the chart and deletes the release. It will however leave the resources create by the embeded helm release behind.
+
+## Configuration
+
+Read through the [values.yaml](./values.yaml) file. It has several commented out suggested values.
+
+Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
+
+```console
+helm install sadpandaops stenic-spo/sadpandaops -f values.yaml
+```
 
 ## Parameters
 
