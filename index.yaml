@@ -2,6 +2,20 @@ apiVersion: v1
 entries:
   sadpandaops:
   - apiVersion: v2
+    appVersion: 1.1.0
+    created: "2021-10-02T15:07:02.080753937Z"
+    description: GitOps for the non cluster admins
+    digest: 04c3041941e30b83906bf2de171d9d89c5e6c79d96280f6975c16d401343a7a4
+    maintainers:
+    - email: dries@stenic.io
+      name: NoUseFreak
+      url: https://stenic.io
+    name: sadpandaops
+    type: application
+    urls:
+    - https://github.com/stenic/sadpandaops/releases/download/sadpandaops-0.1.1/sadpandaops-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
     appVersion: 0.1.0
     created: "2021-10-02T08:35:41.407574394Z"
     description: GitOps for the non cluster admins
@@ -11,4 +25,4 @@ entries:
     urls:
     - https://github.com/stenic/sadpandaops/releases/download/sadpandaops-0.1.0/sadpandaops-0.1.0.tgz
     version: 0.1.0
-generated: "2021-10-02T08:35:41.407580995Z"
+generated: "2021-10-02T15:07:02.080765738Z"
