@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/stenic/sadpandaops/compare/v1.0.5...v1.0.6) (2021-10-02)
+
+
+### Bug Fixes
+
+* Fix workflow chain ([3b0f3d6](https://github.com/stenic/sadpandaops/commit/3b0f3d6ecded02f47f25f215e2587ae61a09a05f))
+
 ## [1.0.5](https://github.com/stenic/sadpandaops/compare/v1.0.4...v1.0.5) (2021-10-02)
 
 
