@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  sadpandaops:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2021-10-02T08:35:41.407574394Z"
+    description: GitOps for the non cluster admins
+    digest: 73c5df85d92412ffe28daadeb1399abb505b3a313578d8c52aa43d2c13359345
+    name: sadpandaops
+    type: application
+    urls:
+    - https://github.com/stenic/sadpandaops/releases/download/sadpandaops-0.1.0/sadpandaops-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-10-02T08:35:41.407580995Z"
