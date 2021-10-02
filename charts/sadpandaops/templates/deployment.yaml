@@ -38,7 +38,7 @@ spec:
             - name: SPO_REPO
               value: {{ required ".Values.sadpandaops.repository.url is required!" .Values.sadpandaops.repository.url | quote }}
             - name: SPO_REPO_PATH
-              value: {{ required ".Values.sadpandaops.repository.url is required!" .Values.sadpandaops.repository.path | quote }}
+              value: {{ required ".Values.sadpandaops.repository.path is required!" .Values.sadpandaops.repository.path | quote }}
             - name: SPO_LOOP_DELAY
               value: {{ .Values.sadpandaops.loopDelay | quote }}
           resources:
