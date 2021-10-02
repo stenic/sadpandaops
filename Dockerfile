@@ -16,6 +16,5 @@ RUN curl -LO "https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz" \
 	&& mv linux-amd64/helm /usr/local/bin/helm \
 	&& rm -rf helm-${HELM_VERSION}-linux-amd64.tar.gz linux-amd64
 
-
 ADD ./entrypoint.sh /opt/entrypoint.sh
 CMD [ "/opt/entrypoint.sh" ]
