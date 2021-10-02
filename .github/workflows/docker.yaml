@@ -1,4 +1,4 @@
-name: ci
+name: Docker release
 
 on:
   schedule:
@@ -10,7 +10,7 @@ on:
       - 'v*.*.*'
   pull_request:
     branches:
-      - 'master'
+      - main
 
 jobs:
   docker:
