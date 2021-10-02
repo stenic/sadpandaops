@@ -19,7 +19,7 @@ jobs:
           node-version: '14.17'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/git @semantic-release/github
 
       - name: Release
         env:
