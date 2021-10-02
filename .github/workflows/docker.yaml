@@ -4,14 +4,11 @@ on:
   schedule:
     - cron: '0 10 * * *' # everyday at 10am
   push:
-    branches:
-      - '**'
     tags:
-      - '**'
+      - '*'
   pull_request:
     branches:
       - main
-  release:
     
 jobs:
   docker:
@@ -35,7 +32,6 @@ jobs:
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
-            type=sha
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
